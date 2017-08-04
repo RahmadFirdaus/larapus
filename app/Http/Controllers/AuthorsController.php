@@ -21,8 +21,8 @@ class AuthorsController extends Controller
 
     public function index()
     {
-        $author = Author::with('book')->get();
-        return view('author.index');
+        $author = Author::with('books')->get();
+        return view('authors.index');
     }
 
     /**
@@ -33,7 +33,7 @@ class AuthorsController extends Controller
     public function create()
     {
         //
-        return view('author.create');
+        return view('authors.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class AuthorsController extends Controller
         $author = new Author;
         $author->nama = $request->a;
         $author->save();
-        return redirect('author');
+        return redirect('authors');
     }
 
     /**
@@ -61,7 +61,7 @@ class AuthorsController extends Controller
     {
         //
         $author = Author::findOrfail($id);
-        return view('author.show', compact('author'));
+        return view('authors.show', compact('authors'));
     }
 
     /**
@@ -74,7 +74,7 @@ class AuthorsController extends Controller
     {
         //
         $author = Author::findOrfail($id);
-        return view('author.edit', compact('author'));
+        return view('authors.edit', compact('authors'));
     }
 
     /**
@@ -90,7 +90,7 @@ class AuthorsController extends Controller
         $author = Author::findOrfail($id);
         $author->nama= $request->a;
         $author->save();
-        return redirect('author');
+        return redirect('authors');
     }
 
     /**
@@ -104,6 +104,6 @@ class AuthorsController extends Controller
         //
         $author = Author::findOrfail($id);
         $author->delete();
-        return redirect('author');
+        return redirect('authors');
     }
 }
