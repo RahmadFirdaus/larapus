@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   
 </head>
 <body>
     <div id="app">
@@ -38,6 +39,7 @@
                     <ul class="nav navbar-nav">
                         @if (Auth::check())
                         <li><a href="{{ url('/home')}}">Dashboard</a></li>
+                        <li><a href="{{ route('author.index') }}">Penulis</a></li>
                         @endif
                     </ul>
 
@@ -46,7 +48,6 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
                             <li><a href="{{ url('/register')}}">Daftar</a></li>
                         @else
                             <li class="dropdown">
@@ -79,5 +80,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="/js/jquery.dataTables.min.js"></script>
+    <script src="/js/jquery.bootstrap.min.js"></script>
+    @yield('scripts')
+
 </body>
 </html>

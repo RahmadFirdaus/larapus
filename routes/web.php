@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::resource('author','AuthorsController');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
+
+Route::resource('book','BookController');
+
+Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function() {
+	
+});
+

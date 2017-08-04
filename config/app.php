@@ -179,6 +179,7 @@ return [
         //Add Plus
         Collective\Html\HtmlServiceProvider::class,
         Laratrust\LaratrustServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
 
     ],
 
@@ -232,6 +233,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Laratrust' => Laratrust\LaratrustFacade::class,
+
 
     ],
 
