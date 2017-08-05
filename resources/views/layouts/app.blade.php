@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.dataTables.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/dataTables.bootstrap.css') }}">
    
 </head>
 <body>
@@ -39,8 +41,10 @@
                     <ul class="nav navbar-nav">
                         @if (Auth::check())
                         <li><a href="{{ url('/home')}}">Dashboard</a></li>
-                        <li><a href="{{ route('author.index') }}">Penulis</a></li>
                         @endif
+                        @role('admin')
+                        <li><a href="{{ route('author.index') }}">Penulis</a></li>
+                        @endrole
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -80,8 +84,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="/js/jquery.dataTables.min.js"></script>
-    <script src="/js/jquery.bootstrap.min.js"></script>
+    <script src="{{asset('/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('/js/dataTables.bootstrap.min.js')}}"></script>
     @yield('scripts')
 
 </body>
